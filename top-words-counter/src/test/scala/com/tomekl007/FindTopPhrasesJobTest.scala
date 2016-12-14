@@ -34,4 +34,18 @@ class FindTopPhrasesJobTest extends SparkSuite {
     )
   }
 
+  test("should find top 2 phrases in given text input delimited by characters other than a-z, A-Z, 0-9") {
+    //given
+    val inputText = spark.makeRDD(List("this;is+a?TeXt!and this:should)be(find&top^phrases_in\nTHIS*TexT"))
+
+    //when
+    val res = FindTopPhrasesJob.findTopPhrases(inputText, 2)
+
+    //then
+    res should contain theSameElementsAs List(
+      ("this", 3),
+      ("text", 2)
+    )
+  }
+
 }

@@ -17,7 +17,7 @@ object FindTopPhrasesJob {
 
   def findTopPhrases(textFile: RDD[String], numberOfTopPhrases: Int): List[(String, Int)] = {
     textFile
-      .flatMap(_.split(";"))
+      .flatMap(_.split("[^a-zA-Z0-9']"))
       .map(_.toLowerCase)
       .map(phrase => (phrase, 1))
       .reduceByKey(_ + _)
