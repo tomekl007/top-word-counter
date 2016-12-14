@@ -2,7 +2,7 @@
 
 
 usage(){
-	echo "Usage: $0 --pathToTextToAnalyze [path]"
+	echo "Usage: $0 --pathsToTextToAnalyze [path_1] [path_2] [path_n-1] [path_n]"
 	exit 1
 }
 
