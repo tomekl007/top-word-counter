@@ -18,7 +18,7 @@ do
 
 done
 
-scp spark-defaults.conf log4j.properties src/main/resources/* $REMOTE_HOST:~/$PROJECT_DIR &
+scp log4j.properties src/main/resources/* $REMOTE_HOST:~/$PROJECT_DIR &
 
 #wait for uploads
 wait
